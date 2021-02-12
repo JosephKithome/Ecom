@@ -65,7 +65,7 @@
 				<div class="cart-row">
 					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
 					<div style="flex:2"><p>{{item.product.name}}</p></div>
-					<div style="flex:1"><p>Kshs {{item.product.price|floatformat:2}}</p></div>
+					<div style="flex:1"><p>Kshs {{item.product.price}}</p></div>
 					<div style="flex:1"><p>{{item.quantity}}</p></div>
 				</div>
 				{% endfor %}
@@ -114,12 +114,14 @@
 				'state':null,
 				'address':null,
 				'zipcode':null,
+				'country':null,
 			}
 			if (shipping != 'False') {
 				shippingInfo.city = form.city.value
 				shippingInfo.state = form.state.value
 				shippingInfo.address = form.address.value
 				shippingInfo.zipcode = form.zipcode.value
+				shippingInfo.country =form.country.value
 
 			}
 			if (user == 'AnonymousUser') {

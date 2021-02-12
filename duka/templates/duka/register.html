@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <script src="{% static 'js/register.js' %}"></script>
+
+</head>
+
+<body>
+    <main>
+      <div class="login-page" >
+  <div class="form">
+    <form class="login-form" action="register" method="post">
+        	{% csrf_token %}
+         {% for message in messages%}
+      <p>{{message}}</p>
+      {% endfor%}
+      <input type="text" name="username" placeholder="Username"/>
+		      <input type="text" name="first_name" placeholder="Firstname"/>
+		      <input type="text" name="last_name" placeholder="Lastname"/>
+		<input type="email"  name="email" placeholder="Email"/>
+      <input type="password" name="password1" placeholder="password"/>
+		<input type="password"name="password2" placeholder="Confirm Password"/>
+              <button>Submit</button>
+    </form>
+
+      <p class="message">Registered? <a href="{% url 'login' %}">Login</a></p>
+  </div>
+</div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+      <script src="{% static 'js/register.js' %}"></script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center">
+      <h2>Please sign in</h2>
+      <form action="login" method="post">
+        {% csrf_token %}
+
+        {% for message in messages%}
+        <p>{{message}}</p>
+        {% endfor %}
+        <input type="text" name="username" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <button>Sign in</button>
+              <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
